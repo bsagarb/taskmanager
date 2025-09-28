@@ -1,0 +1,427 @@
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f7f8fb;
+  color: #111;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 70px auto;
+  padding: 0 16px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  height: 60px;
+}
+
+
+.header .brand {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.header nav a {
+  margin-right: 12px;
+  text-decoration: none;
+  color: #333;
+}
+
+
+.btn {
+  background: #2b6cb0;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #2b6cb0;
+  cursor: pointer;
+}
+
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 70px); 
+}
+
+.auth-page .card h2{
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.auth-page .card a{
+    text-decoration: none;
+}
+
+.auth-page .card a:hover{
+    text-decoration: underline;
+}
+
+.auth-page .card {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-page label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.auth-page input{
+    margin-bottom: 3px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.card .btn{
+    margin-top: 5px;
+}
+
+.error {
+  background: #ffe3e3;
+  color: #800;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.tasks-header {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #f7f8fb;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  height: 70px;
+}
+
+.tasks-content {
+  /* margin-top: 130px; */
+  padding: 0 16px;
+  overflow-y: auto;
+}
+
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-form label {
+  font-weight: 500;
+  margin-top: 8px;
+  color: #333;
+}
+
+.task-form input[name="title"] {
+  padding: 10px;
+  font-size: 16px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.task-form textarea[name="description"] {
+  padding: 10px;
+  font-size: 16px;
+  min-height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  resize: vertical;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+
+.task-form select[name="status"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+.task-form .form-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.task-card {
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.task-card h3 {
+  margin: 0 0 6px;
+}
+
+.task-card .desc {
+  color: #444;
+}
+
+.task-card .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+}
+
+.task-card .actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.task-card .danger {
+  background: #f56565;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.create-task{
+    display: flex;
+    flex-direction: row;
+}
+
+.create-task .btn{
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.status-pending {
+  border-left: 4px solid #ed8936;
+}
+
+.status-in-progress {
+  border-left: 4px solid #3182ce;
+}
+
+.status-completed {
+  border-left: 4px solid #38a169;
+}
+
+.muted {
+  color: #666;
+  margin-top: 5px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 520px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  background: #f0f4fa;
+}
+
+.users-table {
+  border-radius: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #96aac0;
+}
+
+.users-table th,
+.users-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.users-table th{
+    background-color: #255e94;
+}
+
+
+
+.btn-primary {
+  background: #71aef0;
+}
+
+.btn-danger {
+  background: #e53e3e;
+}
+
+.btn-success {
+  background: #6eeeaa;
+}
+
+.btn-warning {
+  background: #ed8936;
+}
+
+.count-pending {
+  background-color: #ed8936;
+}
+
+.count-in-progress {
+  background-color: #3182ce;
+}
+
+.count-completed {
+  background-color: #38a169;
+}
+
+.count-total-tasks {
+  background-color: #4ffaec;
+}
+
+.tabs {
+  position: fixed;
+  top: 130px;
+  left: 0;
+  right: 0;
+  background: #f7f8fb;
+  padding: 12px 16px;
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid #ddd;
+  z-index: 998;
+}
+
+
+.tab-btn {
+  padding: 8px 16px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.tab-btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .tasks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 10px;
+  }
+
+  .tasks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-page {
+    height: auto;
+    padding: 40px 16px;
+  }
+
+  .auth-page .card{
+    width: 100%;
+  }
+  .team-or-me{
+    font-size: 15px;
+  }
+}
+
