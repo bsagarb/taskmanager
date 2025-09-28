@@ -135,7 +135,7 @@ body {
 }
 
 .tasks-content {
-  /* margin-top: 130px; */
+   /* margin-top: 230px; */
   padding: 0 16px;
   overflow-y: auto;
 }
@@ -358,19 +358,32 @@ body {
   background-color: #4ffaec;
 }
 
+
 .tabs {
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px;
+}
+
+.admin-tabs {
   position: fixed;
   top: 130px;
   left: 0;
   right: 0;
   background: #f7f8fb;
-  padding: 12px 16px;
-  display: flex;
-  gap: 10px;
   border-bottom: 1px solid #ddd;
   z-index: 998;
 }
 
+.status-tabs {
+  position: fixed;
+  /* top: 180px; */
+  left: 0;
+  right: 0;
+  background: #f7f8fb;
+  border-bottom: 1px solid #ddd;
+  z-index: 997;
+}
 
 .tab-btn {
   padding: 8px 16px;
@@ -423,5 +436,17 @@ body {
   .team-or-me{
     font-size: 15px;
   }
+  
+  .admin-tabs .tab-btn{
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+  .status-tabs .tab-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+
 }
 

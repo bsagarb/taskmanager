@@ -11,7 +11,8 @@ export default function Tasks() {
   const [editing, setEditing] = useState(null);
   const [creating, setCreating] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState("all"); // 'all' or 'mine'
+  const [activeTab, setActiveTab] = useState("all");
+  const [statusFilter, setStatusFilter] = useState("all");
   const { user } = useContext(AuthContext);
 
   const fetchTasks = async () => {
@@ -45,9 +46,16 @@ export default function Tasks() {
     toast.success("Task Deleted");
     fetchTasks();
   };
+  const baseTasks =
+    user.role === "admin" ? (activeTab === "all" ? tasks : admtasks) : tasks;
 
   const tasksToShow =
-    user.role === "admin" ? (activeTab === "all" ? tasks : admtasks) : tasks;
+    statusFilter === "all"
+      ? baseTasks
+      : baseTasks.filter((task) => task.status.toLowerCase() === statusFilter);
+
+  // const tasksToShow =
+  //   user.role === "admin" ? (activeTab === "all" ? tasks : admtasks) : tasks;
 
   return (
     <div className="tasks-page">
@@ -64,7 +72,7 @@ export default function Tasks() {
       </div>
 
       {user.role === "admin" && (
-        <div className="tabs">
+        <div className="admin-tabs tabs">
           <button
             className={`tab-btn ${activeTab === "all" ? "active" : ""}`}
             onClick={() => setActiveTab("all")}
@@ -79,6 +87,20 @@ export default function Tasks() {
           </button>
         </div>
       )}
+
+      <div className="status-tabs tabs"
+      style={{ top: user.role === "admin" ? "180px" : "130px" }}
+       >
+        {["all", "pending", "in progress", "completed"].map((status) => (
+          <button
+            key={status}
+            className={`tab-btn ${statusFilter === status ? "active" : ""}`}
+            onClick={() => setStatusFilter(status)}
+          >
+            {status.charAt(0).toUpperCase() + status.slice(1)}
+          </button>
+        ))}
+      </div>
 
       {creating && (
         <div className="modal">
@@ -100,7 +122,7 @@ export default function Tasks() {
       ) : (
         <div
           className="tasks-content"
-          style={{ marginTop: user.role === "admin" ? "180px" : "130px" }}
+          style={{ marginTop: user.role === "admin" ? "240px" : "180px" }}
         >
           <div className="tasks-grid">
             {tasksToShow.length === 0 && (
