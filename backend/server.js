@@ -9,7 +9,11 @@ const dashboardRoutes = require("./routes/dashboard");
 const app = express();
 app.use(express.json());
 dotenv.config();
-app.use(cors());
+app.use(cors({
+    origin: '*',  
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: '*'
+}));
 
 connectDB(process.env.MONGO_URL);
 
