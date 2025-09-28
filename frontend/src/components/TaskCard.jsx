@@ -8,7 +8,10 @@ return (
 <div className="meta">
 <small>Owner: {task.owner?.name || '—'}</small>
 <small>Status: {task.status}</small>
-<small>Created: {new Date(task.createdAt).toISOString().split('T')[0]}</small>
+<small>
+    Created: {new Date(task.createdAt).toISOString().split('T')[0]}<br/>
+    Updated: {new Date(task.updatedAt).toISOString().split('T')[0]}
+</small>
 </div>
 <div className="actions">
 <button onClick={() => onEdit(task)}>Edit</button>

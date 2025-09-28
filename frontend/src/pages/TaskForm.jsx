@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const defaultState = { title: "", description: "", status: "Pending" };
 
@@ -10,6 +11,15 @@ export default function TaskForm({ onCreate, initial, onSubmit, onCancel }) {
 
   const submit = async (e) => {
     e.preventDefault();
+    if (!form.title.trim()) {
+      toast.error("Title is required.");
+      return;
+    }
+
+    if (!form.description.trim()) {
+      toast.error("Description is required.");
+      return;
+    }
     if (initial) {
       if (onSubmit) await onSubmit(form);
     } else {
@@ -21,7 +31,7 @@ export default function TaskForm({ onCreate, initial, onSubmit, onCancel }) {
   return (
     <form className="task-form card" onSubmit={submit}>
       <label>Title</label>
-      <input name="title" value={form.title} onChange={handleChange} required />
+      <input name="title" value={form.title} onChange={handleChange} />
       <label>Description</label>
       <textarea
         name="description"
